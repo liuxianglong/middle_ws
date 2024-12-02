@@ -1,0 +1,17 @@
+syntax = "proto3";
+package pb;
+/*
+   这是一个测试proto
+   cd protobuf/proto && protoc --go_out=. api_demo.proto && cd -
+*/
+
+//表示目标文件生成的路径, go的包名就是最后的目录名
+
+option go_package = "../pb";
+
+message DemoData {
+//@inject_tag: json:"next" dc:"下一页"
+uint32 next = 1;
+}
+
+
