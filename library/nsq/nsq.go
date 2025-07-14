@@ -2,9 +2,9 @@ package nsq
 
 import (
 	"context"
-	"demogogo/internal/consts"
-	"demogogo/library/tool"
 	"github.com/nsqio/go-nsq"
+	"middle/internal/consts"
+	"middle/library/tool"
 
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"

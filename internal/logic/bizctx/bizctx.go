@@ -2,10 +2,10 @@ package bizctx
 
 import (
 	"context"
-	"demogogo/internal/consts"
-	"demogogo/internal/model"
-	"demogogo/internal/service"
 	"github.com/gogf/gf/v2/net/ghttp"
+	"middle/internal/consts"
+	"middle/internal/model"
+	"middle/internal/service"
 )
 
 type (
@@ -25,7 +25,7 @@ func (s *sBizCtx) Init(r *ghttp.Request, customCtx *model.Context) {
 	r.SetCtxVar(consts.ContextKey, customCtx)
 }
 
-// Get retrieves and returns the user object from context.
+// Get retrieves and returns the gate object from context.
 // It returns nil if nothing found in given context.
 func (s *sBizCtx) Get(ctx context.Context) *model.Context {
 	value := ctx.Value(consts.ContextKey)
@@ -38,7 +38,7 @@ func (s *sBizCtx) Get(ctx context.Context) *model.Context {
 	return nil
 }
 
-// SetUser injects business user object into context.
+// SetUser injects business gate object into context.
 func (s *sBizCtx) SetUser(ctx context.Context, ctxUser *model.ContextUser) {
 	s.Get(ctx).User = ctxUser
 }

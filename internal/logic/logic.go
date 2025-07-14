@@ -5,6 +5,11 @@
 package logic
 
 import (
-	_ "demogogo/internal/logic/bizctx"
-	_ "demogogo/internal/logic/middleware"
+	_ "middle/internal/logic/auth"
+	_ "middle/internal/logic/bizctx"
+	_ "middle/internal/logic/cache"
+	_ "middle/internal/logic/jwt"
+	_ "middle/internal/logic/middleware"
+	_ "middle/internal/logic/sso_manager"
+	_ "middle/internal/logic/user"
 )

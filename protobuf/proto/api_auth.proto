@@ -1,0 +1,46 @@
+syntax = "proto3";
+package pb;
+/*
+   这是一个测试proto
+   cd protobuf/proto && protoc --go_out=. api_login.proto && cd -
+*/
+
+//表示目标文件生成的路径, go的包名就是最后的目录名
+
+option go_package = "../pb";
+
+message LoginJumpUrlData {
+  //@inject_tag: json:"jump_url" dc:"跳转地址"
+  string jump_url = 1;
+}
+
+message AuthSSOTokenData {
+  //@inject_tag: json:"access_token" dc:"access_token"
+  string access_token = 1;
+  //@inject_tag: json:"token_type" dc:"token_type"
+  string token_type = 2;
+  //@inject_tag: json:"expiry" dc:"过期到什么时间段"
+  string expiry = 3;
+  //@inject_tag: json:"expires_in" dc:"过期时间"
+  int32 expires_in = 4;
+  //@inject_tag: json:"code" dc:"code"
+  int32 code = 5;
+}
+
+message AuthSSOUserinfo {
+  //@inject_tag: json:"uid" dc:"用户id"
+  int32 uid = 1;
+  //@inject_tag: json:"name" dc:"用户名称"
+  string name = 2;
+}
+
+message AuthSSOTokenFail {
+  //@inject_tag: json:"code" dc:"code码"
+  int32 code = 1;
+  //@inject_tag: json:"error" dc:"描述"
+  string error = 2;
+  //@inject_tag: dc:"描述明细"
+  string error_description = 3;
+}
+
+

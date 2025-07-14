@@ -4,7 +4,8 @@
 gfcli:
   gen:
     dao:
-      - link: "mysql:root:123456@tcp(127.0.0.1:3306)/demo"
-        tables: ""
+      - link: "mysql:root:123456@tcp(127.0.0.1:3307)/auth"
+        tables: "cms_user"
         path: "./internal"
         jsonCase: "Snake"
+#        clear: true

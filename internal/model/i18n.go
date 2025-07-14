@@ -2,8 +2,8 @@ package model
 
 import (
 	"context"
-	"demogogo/internal/consts"
 	"github.com/gogf/gf/v2/i18n/gi18n"
+	"middle/internal/consts"
 )
 
 type I18n struct {

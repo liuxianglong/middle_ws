@@ -16,13 +16,13 @@ type Context struct {
 }
 
 type ContextUser struct {
-	UID int64
+	UID uint
 	//AppID    AppID //用户对应的APPID
-	Salt     string
-	Platform string //用户平台
-	Time     uint32 //令牌生成时间
-	Agent    string //用户的Agent
-	Channel  string //用户所属渠道
+	//Salt     string
+	//Platform string //用户平台
+	//Time     uint32 //令牌生成时间
+	//Agent    string //用户的Agent
+	//Channel  string //用户所属渠道
 }
 
 //func (ctx *ContextUser) GetLanguage() string {
@@ -34,16 +34,18 @@ type ContextUser struct {
 //}
 
 // GetChannel 返回当前用户所属渠道，来自用户登录时产生的令牌里
-func (ctx *ContextUser) GetChannel() string {
-	return ctx.Channel
-}
-
-// GetAgent 返回用户所属平台，ios|android|pc
-func (ctx *ContextUser) GetAgent() string {
-	return ctx.Agent
-}
-
-// IsLogined 判断当前用户是否登录
-func (ctx *ContextUser) IsLogined() bool {
-	return ctx.UID > 0 && ctx.Time > 0
+//
+//	func (ctx *ContextUser) GetChannel() string {
+//		return ctx.Channel
+//	}
+//
+// // GetAgent 返回用户所属平台，ios|android|pc
+//
+//	func (ctx *ContextUser) GetAgent() string {
+//		return ctx.Agent
+//	}
+//
+// IsLogin 判断当前用户是否登录
+func (ctx *ContextUser) IsLogin() bool {
+	return ctx.UID > 0
 }

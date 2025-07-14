@@ -13,6 +13,7 @@ import (
 	"image/jpeg"
 	"image/png"
 	"io"
+	"math/rand"
 	"net/http"
 	"net/url"
 	"os"
@@ -296,4 +297,15 @@ func ChangePic2Mosaic(localFile string) (err error) {
 		err = png.Encode(outFile, mosaic)
 	}
 	return err
+}
+
+func RandomString(length int) string {
+	letters := []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+	rand.Seed(time.Now().UnixNano())
+	b := make([]rune, length)
+	lettersLen := len(letters)
+	for i := range b {
+		b[i] = letters[rand.Intn(lettersLen)]
+	}
+	return string(b)
 }

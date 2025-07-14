@@ -2,10 +2,10 @@ package nsqcmd
 
 import (
 	"context"
-	"demogogo/internal/consts"
 	"fmt"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/nsqio/go-nsq"
+	"middle/internal/consts"
 	"sync"
 )
 

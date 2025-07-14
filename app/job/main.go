@@ -1,11 +1,11 @@
 package main
 
 import (
-	_ "demogogo/internal/packed"
+	_ "middle/internal/packed"
 
 	"github.com/gogf/gf/v2/os/gctx"
 
-	"demogogo/app/job/internal/cmd"
+	"middle/app/job/internal/cmd"
 )
 
 func main() {

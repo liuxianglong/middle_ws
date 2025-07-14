@@ -2,11 +2,11 @@ package nsq
 
 import (
 	"context"
-	"demogogo/internal/consts"
-	"demogogo/library/tool"
 	"encoding/json"
 	"fmt"
 	"github.com/nsqio/go-nsq"
+	"middle/internal/consts"
+	"middle/library/tool"
 	"sync/atomic"
 	"time"
 

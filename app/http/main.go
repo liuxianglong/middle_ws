@@ -6,10 +6,10 @@ import (
 
 	"github.com/gogf/gf/v2/os/gctx"
 
-	"demogogo/app/http/internal/cmd"
-	_ "demogogo/internal/boot"
-	_ "demogogo/internal/logic"
-	_ "demogogo/packed"
+	"middle/app/http/internal/cmd"
+	_ "middle/internal/boot"
+	_ "middle/internal/logic"
+	_ "middle/packed"
 )
 
 func main() {

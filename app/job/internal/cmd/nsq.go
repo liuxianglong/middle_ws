@@ -2,11 +2,11 @@ package cmd
 
 import (
 	"context"
-	"demogogo/app/job/internal/cmd/nsqcmd"
-	"demogogo/library/cmd"
-	nsqc "demogogo/library/nsq"
 	"fmt"
 	"github.com/nsqio/go-nsq"
+	"middle/app/job/internal/cmd/nsqcmd"
+	"middle/library/cmd"
+	nsqc "middle/library/nsq"
 	"time"
 
 	"github.com/gogf/gf/v2/frame/g"

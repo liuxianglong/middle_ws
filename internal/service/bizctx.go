@@ -7,7 +7,7 @@ package service
 
 import (
 	"context"
-	"demogogo/internal/model"
+	"middle/internal/model"
 
 	"github.com/gogf/gf/v2/net/ghttp"
 )
@@ -16,10 +16,10 @@ type (
 	IBizCtx interface {
 		// Init initializes and injects custom business context object into request context.
 		Init(r *ghttp.Request, customCtx *model.Context)
-		// Get retrieves and returns the user object from context.
+		// Get retrieves and returns the gate object from context.
 		// It returns nil if nothing found in given context.
 		Get(ctx context.Context) *model.Context
-		// SetUser injects business user object into context.
+		// SetUser injects business gate object into context.
 		SetUser(ctx context.Context, ctxUser *model.ContextUser)
 	}
 )
@@ -30,7 +30,7 @@ var (
 
 func BizCtx() IBizCtx {
 	if localBizCtx == nil {
-		panic("implement not found for interface IBizCtx, forgot register?")
+		panic("implement not found for interface IBizCtx, forgot srv_register?")
 	}
 	return localBizCtx
 }

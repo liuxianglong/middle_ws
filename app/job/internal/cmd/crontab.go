@@ -2,8 +2,8 @@ package cmd
 
 import (
 	"context"
-	"demogogo/app/job/internal/cmd/crontab"
-	"demogogo/library/cmd"
+	"middle/app/job/internal/cmd/crontab"
+	"middle/library/cmd"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gcron"
