@@ -30,6 +30,7 @@ func New() service.IClientManager {
 		Users:      make(map[int64]service.ISocket),
 		Register:   make(chan service.ISocket, 100),
 		Unregister: make(chan service.ISocket, 100),
+		Login:      make(chan service.ISocket, 100),
 	}
 }
 
