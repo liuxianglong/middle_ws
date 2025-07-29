@@ -1,0 +1,32 @@
+syntax = "proto3";
+package pb;
+/*
+   这是一个测试proto
+   cd protobuf/proto && protoc --go_out=. api_demo.proto && cd -
+*/
+
+//表示目标文件生成的路径, go的包名就是最后的目录名
+
+option go_package = "../pb";
+
+message WSRequest {
+  //@inject_tag: dc:"下一页"
+  bytes body = 1;
+  WSRequestHead head = 2;
+}
+message WSRequestHead {
+  bytes head_pad = 1;
+  int64 id = 2;//消息唯一id
+  int64 uid = 3;//用户数字id
+  int64 send_time = 4;//消息发送时间，精确到毫秒
+  int32 size = 5;//消息内容长度
+  bytes check = 6;//校验位
+  bytes end_pad = 7;//消息头结束标识
+  string cmd = 8;//请求路由
+  bytes tm = 9;//消息内容格式 0二进制 1json串
+  bytes rt = 10;//请求类型 0push 1request
+  bytes free1 = 11;//保留字段
+  bytes free2 = 12;//保留字段
+}
+
+

@@ -9,9 +9,6 @@ server:
   AccessLogEnabled: true
   AccessLogPattern: "access.{Ymd}.log"
   clientMaxBodySize: 0
-  frontUrl: "/" #前端首页
-  frontLoginUrl: "/auth/feishu/jump" #前端登录页
-  ssoSecret: "WzETn9-vNdLJ4bJ9jIasZTSE-4LVt5agxrmMtdMEEFI"
 logger:
   path:                  "log"                    # 日志文件路径。默认为空，表示关闭，仅输出到终端
   file:                  "{Y-m-d}.log"         # 日志文件格式。默认为"{Y-m-d}.log"
@@ -48,19 +45,20 @@ redis:
   default:
     address: "127.0.0.1:6379"
 redis-debug: true
-go-nsq:
-  lookup: ["192.168.11.51:4161"]
-  default: ["192.168.11.51:4150"]
-
-oss:
-  cdnDomain: ""
-  endpoint: ""
-  bucket: ""
-  accessKey: ""
-  accessSecret: ""
-
-feishu:
-  clientID: "cli_a8eb5ab88b9f500b"
-  clientSecret: "dyPNIYWWj65Yhnb4nXmcIbXaydW3WJ8k"
-  redirectURL: "https://72dc-160-30-128-202.ngrok-free.app/auth/feishu/callback"
+gatewayHost: ""
+srv-router:
+  version: 1.1
+  route:
+    login:
+      reg_service: ""
+      service: ""
+      method: ""
+    login2:
+      reg_service: ""
+      service: ""
+      method: ""
+    heartbeat:
+      reg_service: ""
+      service: ""
+      method: ""
 

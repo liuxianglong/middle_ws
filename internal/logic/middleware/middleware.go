@@ -1,11 +1,7 @@
 package middleware
 
 import (
-	"github.com/gogf/gf/v2/i18n/gi18n"
-	"middle/internal/model"
 	"middle/internal/service"
-	"middle/utility"
-	"middle/utility/code"
 	"net/http"
 
 	"github.com/gogf/gf/v2/errors/gcode"
@@ -99,39 +95,39 @@ func (s *sMiddleware) HandleResponse(r *ghttp.Request) {
 }
 
 func (s *sMiddleware) Ctx(r *ghttp.Request) {
-	session := r.Session
-	ctx := r.Context()
-	sessionUser := &model.SessionUser{}
-	sessionVar, err := session.Get("gate")
-	if err != nil {
-		g.Log().Error(ctx, "sMiddleware.Ctx session.get err=%v", err)
-		r.SetError(code.CodeError.New(r.GetCtx(), code.SystemServerErr))
-		return
-	}
-	err = sessionVar.Struct(sessionUser)
-
-	if err != nil {
-		g.Log().Error(ctx, "sMiddleware.Ctx sessionVar.Struct err=%v", err)
-		r.SetError(code.CodeError.New(r.GetCtx(), code.SystemServerErr))
-		return
-	}
-
-	customCtx := &model.Context{
-		I18n: model.NewI18n(),
-		Data: make(g.Map),
-		User: &model.ContextUser{
-			UID: sessionUser.Id,
-		},
-	}
-	lang := r.GetHeader("Lang")
-	if !(utility.InArray(lang, consts.AllowLangList)) {
-		lang = consts.DefaultI18n
-	}
-	body := r.GetBodyString()
-
-	g.Log().Infof(r.GetCtx(), "ctx,url=%s, body=%s", r.GetUrl(), body)
-	customCtx.I18n.SetLanguage(lang)
-	service.BizCtx().Init(r, customCtx)
-	r.SetCtx(gi18n.WithLanguage(r.Context(), lang))
+	//session := r.Session
+	//ctx := r.Context()
+	//sessionUser := &model.SessionUser{}
+	//sessionVar, err := session.Get("gate")
+	//if err != nil {
+	//	g.Log().Error(ctx, "sMiddleware.Ctx session.get err=%v", err)
+	//	r.SetError(code.CodeError.New(r.GetCtx(), code.SystemServerErr))
+	//	return
+	//}
+	//err = sessionVar.Struct(sessionUser)
+	//
+	//if err != nil {
+	//	g.Log().Error(ctx, "sMiddleware.Ctx sessionVar.Struct err=%v", err)
+	//	r.SetError(code.CodeError.New(r.GetCtx(), code.SystemServerErr))
+	//	return
+	//}
+	//
+	//customCtx := &model.Context{
+	//	I18n: model.NewI18n(),
+	//	Data: make(g.Map),
+	//	User: &model.ContextUser{
+	//		UID: sessionUser.Id,
+	//	},
+	//}
+	//lang := r.GetHeader("Lang")
+	//if !(utility.InArray(lang, consts.AllowLangList)) {
+	//	lang = consts.DefaultI18n
+	//}
+	//body := r.GetBodyString()
+	//
+	//g.Log().Infof(r.GetCtx(), "ctx,url=%s, body=%s", r.GetUrl(), body)
+	//customCtx.I18n.SetLanguage(lang)
+	//service.BizCtx().Init(r, customCtx)
+	//r.SetCtx(gi18n.WithLanguage(r.Context(), lang))
 	r.Middleware.Next()
 }

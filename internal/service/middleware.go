@@ -15,9 +15,6 @@ type (
 		CORS(r *ghttp.Request)
 		HandleResponse(r *ghttp.Request)
 		Ctx(r *ghttp.Request)
-		// SsoTokenResponse
-		// sso——token返回值需特殊处理，目的：为符合oauth2.0标准
-		SsoTokenResponse(r *ghttp.Request)
 	}
 )
 
@@ -27,7 +24,7 @@ var (
 
 func Middleware() IMiddleware {
 	if localMiddleware == nil {
-		panic("implement not found for interface IMiddleware, forgot srv_register?")
+		panic("implement not found for interface IMiddleware, forgot register?")
 	}
 	return localMiddleware
 }

@@ -21,7 +21,7 @@ var (
 
 func Cache() ICache {
 	if localCache == nil {
-		panic("implement not found for interface ICache, forgot srv_register?")
+		panic("implement not found for interface ICache, forgot register?")
 	}
 	return localCache
 }
