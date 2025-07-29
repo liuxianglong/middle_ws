@@ -11,7 +11,6 @@ import (
 
 type (
 	IClientManager interface {
-		InitClientManager(ctx context.Context) (clientManager *sClientManager)
 		Start(ctx context.Context)
 		EventRegister(ctx context.Context, conn ISocket)
 		EventLogin(ctx context.Context, conn ISocket)

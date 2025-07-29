@@ -25,18 +25,23 @@ func init() {
 }
 
 func New() service.IClientManager {
-	return &sClientManager{}
-}
-
-func (s *sClientManager) InitClientManager(ctx context.Context) (clientManager *sClientManager) {
-	clientManager = &sClientManager{
+	return &sClientManager{
 		Clients:    make(map[service.ISocket]bool),
 		Users:      make(map[int64]service.ISocket),
 		Register:   make(chan service.ISocket, 100),
 		Unregister: make(chan service.ISocket, 100),
 	}
-	return
 }
+
+//func (s *sClientManager) InitClientManager(ctx context.Context) (clientManager service.IClientManager) {
+//	clientManager = &sClientManager{
+//		Clients:    make(map[service.ISocket]bool),
+//		Users:      make(map[int64]service.ISocket),
+//		Register:   make(chan service.ISocket, 100),
+//		Unregister: make(chan service.ISocket, 100),
+//	}
+//	return
+//}
 
 func (s *sClientManager) Start(ctx context.Context) {
 	for {

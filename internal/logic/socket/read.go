@@ -172,7 +172,6 @@ func (s *sSocket) Crash(ctx context.Context) {
 	if s.wsConn.Session != nil {
 		service.ClientManager().EventUnregister(ctx, s)
 		s.wsConn.Session = nil
-
 	}
 	s.stop(ctx)
 }

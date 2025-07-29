@@ -21,12 +21,13 @@ var (
 			s := g.Server()
 
 			service.Cache().RedisRegister(ctx)
-			service.SrvRouter().InitRouter(ctx)
-			go service.SrvRouter().Lookup(ctx)
+			srvRouter := service.SrvRouter()
+			srvRouter.InitRouter(ctx)
+			go srvRouter.Lookup(ctx)
 
-			service.ClientManager().InitClientManager(ctx)
-			go service.ClientManager().Start(ctx)
-			go service.ClientManager().ClearTimeoutConnections(ctx)
+			clientManager := service.ClientManager()
+			go clientManager.Start(ctx)
+			go clientManager.ClearTimeoutConnections(ctx)
 			s.Group("/", func(group *ghttp.RouterGroup) {
 				group.Middleware(
 					service.Middleware().Ctx,
